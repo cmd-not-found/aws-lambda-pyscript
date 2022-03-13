@@ -4,7 +4,8 @@ RUN apt-get update
 RUN apt-get install -y jq zip
 RUN pip install awscli boto3
 
-ADD entrypoint.sh /entrypoint.sh
-ADD py-test.py /py-test.py
+COPY entrypoint.sh /
+COPY py-test.py /
 RUN chmod +x /entrypoint.sh
+RUN ls -lsa
 ENTRYPOINT ["/entrypoint.sh"]
